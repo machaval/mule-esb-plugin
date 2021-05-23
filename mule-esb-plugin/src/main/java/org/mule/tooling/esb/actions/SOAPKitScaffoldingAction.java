@@ -13,27 +13,22 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.vfs.VirtualFileAdapter;
-import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.psi.PsiFile;
 import org.apache.commons.io.IOUtils;
-import org.bouncycastle.util.encoders.Base64;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-import org.mule.security.encryption.binary.jce.algorithms.EncryptionAlgorithm;
-import org.mule.security.encryption.binary.jce.algorithms.EncryptionMode;
 import org.mule.soapkit.common.utils.WsdlUtils;
 import org.mule.soapkit.xml.generator.Scaffolder;
-import org.mule.soapkit.xml.generator.model.buildables.SoapkitApiConfig;
-import org.mule.soapkit.xml.generator.parsers.SoapkitMuleConfigParser;
 import org.mule.tooling.esb.launcher.configuration.project.MuleDeployProperties;
 import org.mule.tooling.esb.soapkit.ui.SoapKitDialog;
 import org.mule.tooling.esb.util.MuleConfigUtils;
 import org.mule.tooling.esb.util.MuleUIUtils;
 
 import javax.wsdl.Definition;
-import java.io.*;
+import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 public class SOAPKitScaffoldingAction extends AnAction

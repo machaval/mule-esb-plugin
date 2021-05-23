@@ -53,7 +53,7 @@ public class MuleMavenModuleBuilder extends MavenModuleBuilder implements Source
     }
 
     @Override
-    public void setupRootModel(ModifiableRootModel rootModel) throws ConfigurationException {
+    public void setupRootModel(ModifiableRootModel rootModel) {
         super.setupRootModel(rootModel);
 
         addListener(new ModuleBuilderListener() {

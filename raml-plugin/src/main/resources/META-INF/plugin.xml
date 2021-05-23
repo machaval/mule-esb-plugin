@@ -1,11 +1,10 @@
-<idea-plugin version="2">
+<idea-plugin>
     <id>org.mule.tooling.intellij.raml</id>
     <name>RAML Plugin For IntelliJ</name>
     <version>0.14</version>
     <vendor email="achaval@gmail.com" url="https://github.com/machaval/mule-esb-plugin">Mariano Achaval</vendor>
     <description><![CDATA[
      RAML Plugin For IntelliJ
-
     ]]></description>
 
     <change-notes><![CDATA[
@@ -72,7 +71,7 @@
     ]]>
     </change-notes>
 
-    <idea-version since-build="145"/>
+    <idea-version since-build="191"/>
 
     <depends>org.jetbrains.plugins.yaml</depends>
     <depends>com.intellij.modules.lang</depends>
@@ -81,7 +80,11 @@
 
         <!-- RAML -->
 
-        <fileTypeFactory implementation="org.mule.tooling.lang.raml.file.RamlFileTypeFactory"/>
+        <fileType name="Raml"
+                  language="RAML"
+                  implementationClass="org.mule.tooling.lang.raml.file.RamlFileType"
+                  extensions="raml"
+                  fieldName="INSTANCE"/>
         <lang.parserDefinition language="RAML" implementationClass="org.mule.tooling.lang.raml.parser.RamlParserDefinition"/>
         <lang.commenter language="RAML" implementationClass="org.mule.tooling.lang.raml.RamlCommenter"/>
         <lang.syntaxHighlighterFactory language="RAML" implementationClass="org.jetbrains.yaml.YAMLSyntaxHighlighterFactory"/>
@@ -100,11 +103,6 @@
         <langCodeStyleSettingsProvider implementation="org.mule.tooling.lang.raml.codestyle.RamlLanguageCodeStyleSettingsProvider"/>
         <codeStyleSettingsProvider implementation="org.mule.tooling.lang.raml.codestyle.RamlCodeStyleSettingsProvider"/>
     </extensions>
-
-    <application-components>
-        <!-- Add your application components here -->
-    </application-components>
-
 
     <actions>
         <action id="RAML.GenerateRAMLFromXSD"

@@ -1,8 +1,8 @@
 package org.mule.tooling.esb.framework.facet;
 
 import com.intellij.facet.*;
-import com.intellij.icons.AllIcons;
 import com.intellij.openapi.module.*;
+import com.intellij.openapi.module.Module;
 import org.jetbrains.annotations.*;
 import org.mule.tooling.esb.framework.MuleFrameworkUtil;
 import org.mule.tooling.esb.util.MuleIcons;

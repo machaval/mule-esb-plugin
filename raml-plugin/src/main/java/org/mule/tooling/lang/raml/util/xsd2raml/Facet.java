@@ -1,6 +1,6 @@
 package org.mule.tooling.lang.raml.util.xsd2raml;
 
-import com.sun.org.apache.xerces.internal.xs.XSSimpleTypeDefinition;
+import org.apache.xerces.xs.XSSimpleTypeDefinition;
 
 /**
  * Created by eberman on 5/19/17.

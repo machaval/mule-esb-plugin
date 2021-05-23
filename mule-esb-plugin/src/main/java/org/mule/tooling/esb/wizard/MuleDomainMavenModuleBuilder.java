@@ -34,7 +34,7 @@ public class MuleDomainMavenModuleBuilder extends MavenModuleBuilder implements 
     }
 
     @Override
-    public void setupRootModel(ModifiableRootModel rootModel) throws ConfigurationException {
+    public void setupRootModel(ModifiableRootModel rootModel) {
         super.setupRootModel(rootModel);
 
         setMuleFacet(rootModel.getModule());

@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class MelFileType extends LanguageFileType {
 
-    private static MelFileType instance = new MelFileType();
+    public static MelFileType INSTANCE = new MelFileType();
 
     protected MelFileType() {
         super(MelLanguage.getInstance());
@@ -41,6 +41,6 @@ public class MelFileType extends LanguageFileType {
     }
 
     public static MelFileType getInstance(){
-        return instance;
+        return INSTANCE;
     }
 }

@@ -1,6 +1,6 @@
-<idea-plugin version="2">
+<idea-plugin>
     <id>org.mule.intellij.plugin</id>
-    <name>Mule ESB Plugin For IntelliJ</name>
+    <name>Mule ESB For IntelliJ</name>
     <version>0.14</version>
     <vendor email="achaval@gmail.com" url="https://github.com/machaval/mule-esb-plugin">Mariano Achaval</vendor>
     <description><![CDATA[
@@ -162,7 +162,7 @@
     ]]>
     </change-notes>
 
-    <idea-version since-build="145"/>
+    <idea-version since-build="191"/>
 
     <depends>org.jetbrains.idea.maven</depends>
     <depends>org.mule.tooling.intellij.dataweave</depends>
@@ -203,7 +203,7 @@
 
         <runConfigurationProducer implementation="org.mule.tooling.esb.actions.MuleApplicationConfigurationProducer"/>
 
-        <dom.fileDescription implementation="org.mule.tooling.esb.config.MuleDomFileDescription"/>
+        <dom.fileMetaData implementation="org.mule.tooling.esb.config.MuleDomFileDescription" rootTagName="mule"/>
         <psi.referenceContributor language="XML"
                                   implementation="org.mule.tooling.esb.config.reference.MuleConfigurationReferenceContributor"/>
 
@@ -224,7 +224,7 @@
         <liveTemplateContext implementation="org.mule.tooling.esb.templates.MuleFlowElementLiveTemplateContextType"/>
         <liveTemplateContext implementation="org.mule.tooling.esb.templates.MuleTopElementLiveTemplateContextType"/>
 
-        <defaultLiveTemplatesProvider implementation="org.mule.tooling.esb.templates.MuleConfigLiveTemplatesProvider"/>
+        <defaultLiveTemplates file="/liveTemplates/mule_config.xml"/>
 
         <renameHandler implementation="org.mule.tooling.esb.config.refactoring.rename.FlowRenameHandler" order="first"/>
 
@@ -233,7 +233,11 @@
         <xml.schemaProvider implementation="org.mule.tooling.esb.config.completion.MuleSchemaProvider"/>
 
         <!--MEL Support-->
-        <fileTypeFactory implementation="org.mule.tooling.esb.lang.mel.MelFileTypeFactory"/>
+        <fileType name="Mel"
+                  language="Mel"
+                  implementationClass="org.mule.tooling.esb.lang.mel.MelFileType"
+                  extensions="mel"
+                  fieldName="INSTANCE"/>
         <lang.parserDefinition language="Mel" implementationClass="org.mule.tooling.esb.lang.mel.parser.MelParserDefinition"/>
         <colorSettingsPage implementation="org.mule.tooling.esb.lang.mel.highlighter.MelColorSettingsPage"/>
         <lang.syntaxHighlighterFactory language="Mel"
@@ -242,10 +246,10 @@
         <lang.braceMatcher language="Mel" implementationClass="org.mule.tooling.esb.lang.mel.MelPairedBraceMatcher"/>
 
         <!-- MUnit -->
-        <dom.fileDescription implementation="org.mule.tooling.esb.MUnitDomFileDescription"/>
+        <dom.fileMetaData implementation="org.mule.tooling.esb.MUnitDomFileDescription" rootTagName="mule"/>
 
         <!--Templates-->
-        <internalFileTemplate name="DataWeave"/>
+        <internalFileTemplate name="Data Weave"/>
         <internalFileTemplate name="Mule Config"/>
         <internalFileTemplate name="Mule Domain Config"/>
         <internalFileTemplate name="MUnit Config"/>
@@ -257,17 +261,11 @@
         <internalFileTemplate name="Mule Deploy Properties"/>
         <internalFileTemplate name="Mule Domain Deploy Properties"/>
         <internalFileTemplate name="RAML File"/>
-<!--
 
         <toolWindow id="Global Configs" secondary="false" icon="/mulesoft-icon.png" anchor="right"
-                    factoryClaorg.mule.tooling.esb.toolwindow.globalconfigs.GlobalConfigsToolWindowFactorytory"
-                    conditionClaorg.mule.tooling.esb.toolwindow.globalconfigs.GlobalConfigsToolWindowFactorytory"/>
--->
-    </extensions>
+                    factoryClass="org.mule.tooling.esb.toolwindow.globalconfigs.GlobalConfigsToolWindowFactory"/>
 
-    <application-components>
-        <!-- Add your application components here -->
-    </application-components>
+    </extensions>
 
     <project-components>
         <component>

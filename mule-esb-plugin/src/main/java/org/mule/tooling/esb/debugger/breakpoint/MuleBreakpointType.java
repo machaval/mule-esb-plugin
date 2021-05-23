@@ -1,6 +1,7 @@
 package org.mule.tooling.esb.debugger.breakpoint;
 
 import com.intellij.lang.Language;
+import com.intellij.lang.injection.InjectedLanguageManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
@@ -56,10 +57,9 @@ public class MuleBreakpointType extends XLineBreakpointType<XBreakpointPropertie
                         final PsiElement firstWeaveElement = WeavePsiUtils.getFirstWeaveElement(project, document, line);
                         if (firstWeaveElement != null)
                         {
-                            PsiLanguageInjectionHost parent = PsiTreeUtil.getParentOfType(firstWeaveElement, PsiLanguageInjectionHost.class);
-                            if (parent != null)
-                            {
-                                final PsiElement elementInInjected = InjectedLanguageUtil.findElementInInjected(parent, line);
+                            final PsiElement elementInInjected = InjectedLanguageManager.getInstance(project)
+                                    .findInjectedElementAt(psiFile, line);
+                            if (elementInInjected != null) {
                                 final Language language = elementInInjected.getLanguage();
                                 return language == WeaveLanguage.getInstance();
                             }

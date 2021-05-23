@@ -11,7 +11,7 @@ import java.util.List;
 
 public class WeaveFileType extends LanguageFileType {
 
-    private static WeaveFileType instance = new WeaveFileType();
+    public static WeaveFileType INSTANCE = new WeaveFileType();
 
     protected WeaveFileType() {
         super(WeaveLanguage.getInstance());
@@ -51,6 +51,6 @@ public class WeaveFileType extends LanguageFileType {
     }
 
     public static WeaveFileType getInstance() {
-        return instance;
+        return INSTANCE;
     }
 }

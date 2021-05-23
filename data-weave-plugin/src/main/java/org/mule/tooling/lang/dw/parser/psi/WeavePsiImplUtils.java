@@ -101,7 +101,7 @@ public class WeavePsiImplUtils {
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return AllIcons.Json.Property_braces;
+                return AllIcons.Nodes.Property;
             }
         };
     }
@@ -163,10 +163,5 @@ public class WeavePsiImplUtils {
     public static PsiReference getReference(WeaveVariableReferenceExpression variable) {
         return new WeaveVariablePsiReference(variable, new TextRange(0, variable.getName().length()));
     }
-
-    //Function Call
-//    public static PsiReference getReference(WeaveFunctionCallExpression variable) {
-//        return new WeaveFunctionPsiReference(variable, new TextRange(0, variable.getName().length()));
-//    }
 
 }

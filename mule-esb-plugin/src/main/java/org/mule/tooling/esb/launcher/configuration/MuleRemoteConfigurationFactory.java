@@ -15,4 +15,10 @@ class MuleRemoteConfigurationFactory extends ConfigurationFactory {
     return new MuleRemoteConfiguration(project, this, "Remote debug");
   }
 
+  @Override
+  public
+  String getId() {
+    return "Mule ESB Plugin For IntelliJ";
+  }
+
 }

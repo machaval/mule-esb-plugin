@@ -28,9 +28,9 @@ public class MuleFileTemplateDescriptorManager implements FileTemplateGroupDescr
         group.addTemplate(new FileTemplateDescriptor(MULE_CONFIGURATION_FILE, MuleIcons.MuleFileType));
         group.addTemplate(new FileTemplateDescriptor(MULE_DOMAIN_CONFIGURATION_FILE, MuleIcons.MuleFileType));
         group.addTemplate(new FileTemplateDescriptor(DATA_WEAVE_FILE, MuleIcons.DataFileType));
-        group.addTemplate(new FileTemplateDescriptor(MULE_MAVEN_PROJECT, MavenIcons.MavenLogo));
-        group.addTemplate(new FileTemplateDescriptor(MULE_MAVEN_MODULE, MavenIcons.MavenLogo));
-        group.addTemplate(new FileTemplateDescriptor(MULE_DOMAIN_MAVEN_PROJECT, MavenIcons.MavenLogo));
+        group.addTemplate(new FileTemplateDescriptor(MULE_MAVEN_PROJECT, MavenIcons.MavenPlugin));
+        group.addTemplate(new FileTemplateDescriptor(MULE_MAVEN_MODULE, MavenIcons.MavenPlugin));
+        group.addTemplate(new FileTemplateDescriptor(MULE_DOMAIN_MAVEN_PROJECT, MavenIcons.MavenPlugin));
         group.addTemplate(new FileTemplateDescriptor(MUNIT_FILE, MuleIcons.MUnitFileType));
         group.addTemplate(new FileTemplateDescriptor(RAML_FILE, MuleIcons.RamlFileType));
 

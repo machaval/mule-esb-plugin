@@ -32,4 +32,9 @@ public class MUnitDomFileDescription extends DomFileDescription<MUnit> {
     protected void initializeFileDescription() {
         super.initializeFileDescription();
     }
+
+    @Override
+    public boolean acceptsOtherRootTagNames() {
+        return true;
+    }
 }

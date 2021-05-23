@@ -36,8 +36,8 @@ import org.mule.tooling.esb.sdk.MuleSdk;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 
 public class MuleFrameworkDetector extends FrameworkDetector
@@ -49,7 +49,7 @@ public class MuleFrameworkDetector extends FrameworkDetector
 
 
     @Override
-    public FrameworkType getFrameworkType()
+    public @NotNull FrameworkType getFrameworkType()
     {
         return MuleFrameworkType.getFrameworkType();
     }
@@ -70,10 +70,6 @@ public class MuleFrameworkDetector extends FrameworkDetector
                         FileContentPattern.fileContent().withName("mule-app.properties"),
                         FileContentPattern.fileContent().withName("mule-domain-config.xml"));
 
-        //        new FileContent()
-//        return FileContentPattern.fileContent().oneOf(FileContentPattern.fileContent().withName("mule-app.properties")., FileContentPattern.fileContent().withName("mule-domain-config.xml"));
-
-                //.withName("mule-app.properties")..withName("mule-domain-config.xml");
     }
 
     @Override
@@ -152,9 +148,9 @@ public class MuleFrameworkDetector extends FrameworkDetector
             if (o == null || getClass() != o.getClass())
                 return false;
 
-            if (detector != null ? !detector.equals(that.detector) : that.detector != null)
+            if (!Objects.equals(detector, that.detector))
                 return false;
-            return collection != null ? collection.equals(that.collection) : that.collection == null;
+            return Objects.equals(collection, that.collection);
 
         }
 

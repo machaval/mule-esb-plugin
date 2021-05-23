@@ -18,19 +18,6 @@ public class RamlLanguageCodeStyleSettingsProvider extends YAMLLanguageCodeStyle
         return RamlLanguage.INSTANCE;
     }
 
-/*
-    @Override
-    public CommonCodeStyleSettings getDefaultCommonSettings() {
-        CommonCodeStyleSettings settings = new CommonCodeStyleSettings(RamlLanguage.INSTANCE);
-        CommonCodeStyleSettings.IndentOptions indentOptions = settings.initIndentOptions();
-        indentOptions.INDENT_SIZE = 2;
-//        indentOptions.CONTINUATION_INDENT_SIZE = 8;
-        indentOptions.TAB_SIZE = 2;
-        indentOptions.USE_TAB_CHARACTER = false;
-        return settings;
-    }
-*/
-
     @Override
     public String getCodeSample(@NotNull SettingsType settingsType) {
 
@@ -69,7 +56,6 @@ public class RamlLanguageCodeStyleSettingsProvider extends YAMLLanguageCodeStyle
     @Override
     public void customizeSettings(@NotNull CodeStyleSettingsCustomizable consumer, @NotNull SettingsType settingsType) {
         if (settingsType == SettingsType.INDENT_SETTINGS) {
-            //consumer.showStandardOptions("SPACE_AROUND_ASSIGNMENT_OPERATORS");
             consumer.showAllStandardOptions();
         }
     }

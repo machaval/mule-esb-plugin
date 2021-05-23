@@ -1,9 +1,9 @@
 package org.mule.tooling.lang.raml.util.xsd2raml;
 
-import com.sun.org.apache.xerces.internal.dom.DOMXSImplementationSourceImpl;
-import com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType;
-import com.sun.org.apache.xerces.internal.impl.xs.XSComplexTypeDecl;
-import com.sun.org.apache.xerces.internal.xs.*;
+import org.apache.xerces.dom.DOMXSImplementationSourceImpl;
+import org.apache.xerces.impl.dv.XSSimpleType;
+import org.apache.xerces.impl.xs.XSComplexTypeDecl;
+import org.apache.xerces.xs.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

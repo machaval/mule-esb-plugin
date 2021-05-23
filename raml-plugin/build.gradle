@@ -8,21 +8,17 @@ sourceSets {
 
 configurations {
 	gen
-//	compile.exclude module: 'xml-apis'
 	all*.exclude group: 'xml-apis', module: 'xml-apis'
 	all*.exclude module: 'commons-logging'
 	all*.exclude group: 'org.slf4j'
 }
 
 dependencies {
-	compile ('org.raml:raml-parser-2:1.0.14')
+	implementation 'org.raml:raml-parser-2:1.0.14'
 }
 
 intellij {
 	version = ideaVersion
-	plugins = ["yaml"]
-	pluginName = 'raml-plugin'  
-	publish {
-		pluginId '8459'
-	}
+	plugins = ["yaml", 'com.intellij.java']
+	pluginName = 'raml-plugin'
 }

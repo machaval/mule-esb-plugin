@@ -4,29 +4,26 @@ configurations {
 }
 
 dependencies {
-    compile files('lib/mule-plugin-debugger-3.8.4.jar',
+    implementation files('lib/mule-plugin-debugger-3.8.4.jar',
                   'lib/security-api-1.6.0.jar',
                   'lib/mule-module-apikit-soap-common-1.0.0.jar',
                   'lib/mule-module-apikit-soap-xml-generator-1.0.0.jar',
     )
 
-    compile project(':data-weave-plugin')
-    compile project(':raml-plugin')
+    compileOnly project(':data-weave-plugin')
+    compileOnly project(':raml-plugin')
 
-    compile ('org.mule.tools:apikit-scaffolder:3.8.4') {
+    implementation ('org.mule.tools:apikit-scaffolder:3.8.4') {
         exclude module: 'xml-apis'
         exclude module: 'commons-logging'
         exclude module: 'raml-parser-2'
         exclude group: "org.slf4j"
     }
 
-//    compile (group: 'com.mulesoft.security', name: 'security-api', version: '1.6.0') {
-//        exclude group: 'org.mule.modules'
-//        exclude group: 'org.mule.transports'
-//    }
+    implementation (group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.55')
+    implementation (group: 'wsdl4j', name: 'wsdl4j', version: '1.6.3')
 
-    compile (group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.55')
-    compile (group: 'wsdl4j', name: 'wsdl4j', version: '1.6.3')
+    implementation (group: 'org.mule', name: 'mule-core', version: '3.8.1')
 }
 
 
@@ -40,10 +37,6 @@ sourceSets {
 
 intellij {
     version = ideaVersion
-    //plugins = ["maven", "groovy", 'properties', 'org.mule.tooling.intellij.dataweave', 'org.mule.tooling.intellij.raml']
-    plugins = ["maven", "Groovy", 'properties', project(':data-weave-plugin'), project(':raml-plugin')]
+    plugins = ["maven", "Groovy", 'properties', 'com.intellij.java', project(':data-weave-plugin'), project(':raml-plugin')]
     pluginName = 'mule-esb-plugin'
-    publish {
-        pluginId '8212'
-    }
 }
